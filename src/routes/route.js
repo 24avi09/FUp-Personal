@@ -16,8 +16,6 @@ router.get("/movies/:indexNumber", function (req, res) {
   let movies = ["Rang de basanti","The shining","Lord of the rings","Batman begins",];
   let requestParams = req.params;
   let numReqParms = parseInt(requestParams.indexNumber);
-  // let resPonse = (typeof numReqParms === "number" && numReqParms < movies.length ) ? res.send(movies[numReqParms]) : res.send("Error: Use a valid index");
-  // res.send(resPonse)
   if (typeof numReqParms === "number" && numReqParms < movies.length) {
     res.send(movies[numReqParms]);
   } else res.send("Error: Use a valid index");
@@ -71,7 +69,7 @@ router.get("/films/:filmId", function (req, res) {
   let numReqParms = parseInt(requestParams.filmId);
   for (let i = 0; i < ArrayOfObject.length; i++) {
     if (typeof numReqParms === "number" && numReqParms == ArrayOfObject[i].id) {
-        resPonse = (ArrayOfObject[i].name);
+        resPonse = (ArrayOfObject[i]);
         break
       } else { resPonse = "No movie exists with this id" ;}
   }
