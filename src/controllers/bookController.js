@@ -19,11 +19,11 @@ const createAuthorList = async function (req, res) {
 
 
 const booksByChatenBhagat = async function (req, res) {
-  let authorIdOfChatenBhagat = await AuthorModel.findOne({
+  let authorIdOfChatenBhagat = await AuthorModel.findOne({        //  {}
     author_name: "Chetan Bhagat",
   }).select({ author_id: 1, _id: 0 });
   // console.log(authorIdOfChatenBhagat);
-  let bookByChatenBhagat = await BookModel.find(authorIdOfChatenBhagat);
+  let bookByChatenBhagat = await BookModel.find(authorIdOfChatenBhagat);    //  [{},{}]
   // console.log(bookByChatenBhagat);
   res.send({ msg: bookByChatenBhagat });
 };
