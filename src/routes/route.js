@@ -13,7 +13,7 @@ router.get("/demo1", function (req, res) {
   res.send("This is demo api res no-1");
 });
 
-router.get("/demo1", function (req, res) {
+router.get("/demo2", function (req, res) {
   res.send("This is demo api res no-2");
 });
 
