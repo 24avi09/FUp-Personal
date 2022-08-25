@@ -10,10 +10,6 @@ const createOrder = async function (req, res) {
     req.headers.isFreeAppUser || req.headers.isfreeappuser;
   let product = data.productId;
   let user = data.userId;
-  let Price = await ProductModel.findOne({ _id: product }, { price: 1 });
-  let Balance = await userModel.findOne({ _id: user }, { balance: 1 });
-  let bal = Balance["balance"];
-  let pr = Price["price"];
   if (!user) {
     res.send({ Error: "user detail is requied" });
   } else if (mongoose.isValidObjectId(user) === false) {
@@ -24,7 +20,11 @@ const createOrder = async function (req, res) {
   } else if (mongoose.isValidObjectId(product) === false) {
     res.send({ Error: "productId is not present " });
   }
-  console.log(data);
+  let Price = await ProductModel.findOne({ _id: product }, { price: 1 });
+  let Balance = await userModel.findOne({ _id: user }, { balance: 1 });
+  let bal = Balance["balance"];
+  let pr = Price["price"];
+//   console.log(data);
   let h = JSON.parse(req.headers.isfreeappuser.toLowerCase());
   if (h) {
     let SavedData = await orderModel.create(data);
