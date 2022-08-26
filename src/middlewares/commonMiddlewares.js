@@ -7,6 +7,8 @@ const mid1 = function (req, res, next) {
       Error: "isFreeAppUser is a mandatory field",
     });
   }
+  let updatedisFreeAppUser = JSON.parse(req.headers.isfreeappuser.toLowerCase());
+  data["isfreeappuser" || "isFreeAppUser"] = updatedisFreeAppUser
   next();
 };
 

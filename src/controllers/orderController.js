@@ -24,8 +24,8 @@ const createOrder = async function (req, res) {
   let Balance = await userModel.findOne({ _id: user }, { balance: 1 });
   let bal = Balance["balance"];
   let pr = Price["price"];
-//   console.log(data);
-  let h = JSON.parse(req.headers.isfreeappuser.toLowerCase());
+  // let h = JSON.parse(req.headers.isfreeappuser.toLowerCase());
+  let h = req.headers["isfreeappuser"||"isFreeAppUser"]
   if (h) {
     let SavedData = await orderModel.create(data);
     res.send({ msg: SavedData });
