@@ -22,3 +22,10 @@ router.post("/users/:userId/posts", userMiddleware.authenticate, userMiddleware.
 router.delete('/users/:userId', userMiddleware.authenticate, userMiddleware.authorise, userController.deleteUser)
 
 module.exports = router;
+
+
+
+
+
+// "start": "node src/index.js"
+// "test": "echo \"Error: no test specified\" && exit 1",
