@@ -7,7 +7,7 @@ const authenticate = function (req, res, next) {
     if (!token)
       return res.status(404).send({ status: false, msg: "token must be present" });
 
-    let decodedToken = jwt.verify(
+    jwt.verify(
       token,
       "functionup-plutonium-very-very-secret-key",
       (err, decoded) => {
